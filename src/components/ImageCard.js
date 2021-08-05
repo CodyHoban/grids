@@ -11,35 +11,45 @@ class ImageCard extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { spans: 0 };
+    this.state = { heightSpans: 0, widthSpans: 0 };
 
     this.imageRef = React.createRef();
   }
 
   componentDidMount() {
-    console.log(this.props);
+    console.log(this.imageRef);
     this.imageRef.current.addEventListener('load', this.setSpans);
   }
 
   setSpans = () => {
     const height = this.imageRef.current.clientHeight;
 
-    const spans = Math.ceil(height / 5);
+    const width = this.imageRef.current.clientWidth;
 
-    this.setState({ spans });
+    const heightSpans = Math.ceil(height / 10);
+
+    const widthSpans = Math.ceil(width / 10);
+
+    this.setState({ heightSpans, widthSpans });
   };
 
   render() {
     const { description, urls, tags, alt_description } = this.props.image;
     return (
-      <Card style={{ gridRowEnd: `span ${this.state.spans}` }}>
+      <Card 
+        background_color="gray" 
+        style={{ 
+          gridRowEnd: `span ${this.state.heightSpans}`,
+          gridColumnEnd: `span ${this.state.widthSpans}`
+        }}
+      >
         <CardActionArea>
           <CardMedia>
             <img 
               ref={this.imageRef}
               alt={description} 
               src={urls.regular}
-              title={tags[1]}
+              title={alt_description}
             />
           </CardMedia>
           <CardContent>
@@ -52,7 +62,7 @@ class ImageCard extends React.Component {
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <Button size="small" color="primary">
+          <Button size="contianed" color="secondary">
             Share
           </Button>
           <Button size="small" color="primary">

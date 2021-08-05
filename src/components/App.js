@@ -3,6 +3,10 @@ import unsplash from '../api/unsplash'
 import SearchBar from './SearchBar'
 import ImageList from './ImageList'
 
+import { ThemeProvider } from '@material-ui/core/styles'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import { withTheme } from '@material-ui/core/styles'
+import theme from './theme'
 
 class App extends React.Component {
     state = { images: [] };
@@ -18,12 +22,15 @@ class App extends React.Component {
 
     render() {
         return (
-            <div className="ui container" style ={{ marginTop: '10px'}}>
-                <SearchBar onSubmit={this.onSearchSubmit}/>
-                <ImageList images={this.state.images} />
-            </div>
+            <ThemeProvider theme={theme}>
+                <CssBaseline />
+                <div className="ui container" style ={{ marginTop: '10px'}}>
+                    <SearchBar onSubmit={this.onSearchSubmit}/>
+                    <ImageList images={this.state.images} />
+                </div>
+            </ThemeProvider>
         );
     }
 };
 
-export default App;
+export default withTheme(App);
