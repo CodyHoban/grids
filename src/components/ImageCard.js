@@ -11,13 +11,13 @@ class ImageCard extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { heightSpans: 0, widthSpans: 0 };
+    this.state = { spans: 0 };
 
     this.imageRef = React.createRef();
   }
 
   componentDidMount() {
-    console.log(this.imageRef);
+    console.log(this.image);
     this.imageRef.current.addEventListener('load', this.setSpans);
   }
 
@@ -26,11 +26,11 @@ class ImageCard extends React.Component {
 
     const width = this.imageRef.current.clientWidth;
 
-    const heightSpans = Math.ceil(height / 10);
+    const spans = Math.ceil(height / 6);
 
-    const widthSpans = Math.ceil(width / 10);
+    //const widthSpans = Math.ceil(width / 10);
 
-    this.setState({ heightSpans, widthSpans });
+    this.setState({ spans });
   };
 
   render() {
@@ -39,8 +39,9 @@ class ImageCard extends React.Component {
       <Card 
         background_color="gray" 
         style={{ 
-          gridRowEnd: `span ${this.state.heightSpans}`,
-          gridColumnEnd: `span ${this.state.widthSpans}`
+          gridRowEnd: `span ${this.state.spans}`,
+          width: '250px',
+          //gridColumnEnd: `span ${this.state.widthSpans}`
         }}
       >
         <CardActionArea>
