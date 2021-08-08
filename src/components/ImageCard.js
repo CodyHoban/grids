@@ -37,12 +37,12 @@ class ImageCard extends React.Component {
     const { description, urls, tags, alt_description } = this.props.image;
     return (
       <Card 
-        background_color="gray" 
-        style={{ 
-          gridRowEnd: `span ${this.state.spans}`,
-          width: '250px',
-          //gridColumnEnd: `span ${this.state.widthSpans}`
-        }}
+        // background_color="gray" 
+        // style={{ 
+        //   gridRowEnd: `span ${this.state.spans}`,
+        //   width: '250px',
+        //   //gridColumnEnd: `span ${this.state.widthSpans}`
+        // }}
       >
         <CardActionArea>
           <CardMedia>

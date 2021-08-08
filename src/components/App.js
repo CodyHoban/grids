@@ -2,6 +2,8 @@ import React from 'react';
 import unsplash from '../api/unsplash'
 import SearchBar from './SearchBar'
 import ImageList from './ImageList'
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
 
 import { ThemeProvider } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
