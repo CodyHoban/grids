@@ -16,8 +16,15 @@ const theme = createTheme({
           },
           background: {
             default: "#EAE7D6",
+          },
+          action: {
+            active: 
+            rgba(0, 0, 0, 0.54),
+            hover: 
+            rgba(200, 0, 0, 0.04)
           }
         },
+        
         
 })
 
